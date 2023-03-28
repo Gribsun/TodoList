@@ -1,9 +1,15 @@
+// core
 import React, {FC} from 'react';
-import {getAuth, GoogleAuthProvider, signInWithPopup, setPersistence} from "firebase/auth";
-import {useAppDispatch} from '../../hooks/redux-hooks';
+import {getAuth, GoogleAuthProvider, signInWithPopup, setPersistence} from 'firebase/auth';
 import {browserLocalPersistence} from '@firebase/auth';
-import {getUserInfo} from "../../helpers/get-user-info";
-import {setAuth} from "../../init/slices/authSlice";
+import {useAppDispatch} from '../../hooks/redux-hooks';
+
+// other
+import {getUserInfo} from '../../helpers/get-user-info';
+import {setAuth} from '../../init/slices/authSlice';
+
+// styles
+import {Div, Headline, Button} from '@vkontakte/vkui';
 
 export const Login: FC = () => {
     const dispatch = useAppDispatch();
@@ -18,21 +24,17 @@ export const Login: FC = () => {
                     dispatch(setAuth());
                     getUserInfo(dispatch);
                 })
-                .catch(console.error))
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
+                .catch(console.error));
     }
 
     return (
-        <div>
-            <h1>
+        <Div>
+            <Headline>
                 Sign in with your google account
-            </h1>
-            <button onClick={handleLogin}>
+            </Headline>
+            <Button onClick={handleLogin}>
                 Login
-            </button>
-        </div>
+            </Button>
+        </Div>
     )
 }

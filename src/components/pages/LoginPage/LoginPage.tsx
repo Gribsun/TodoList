@@ -16,7 +16,7 @@ export const LoginPage: FC = () => {
         getUserInfo(dispatch);
     }, [dispatch]);
 
-    const isAuth = useAppSelector(state => state.auth.isAuth)
+    const isAuth = useAppSelector(state => state.auth.isAuth);
 
     return (
         isAuth

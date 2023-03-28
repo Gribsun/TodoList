@@ -1,0 +1,11 @@
+.todo {
+    border: 1px solid black;
+}
+
+.todoDone {
+    text-decoration: line-through;
+}
+
+.todoIsNotCompleted {
+
+}
